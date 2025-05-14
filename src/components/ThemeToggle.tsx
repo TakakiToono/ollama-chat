@@ -32,13 +32,14 @@ export const ThemeToggle = () => {
       size="icon"
       onClick={toggleTheme}
       aria-label="Toggle theme"
-      className="rounded-full transition-all duration-300 ease-in-out"
+      className="rounded-full transition-all duration-500 ease-in-out hover:-translate-y-1 hover:shadow-md"
     >
       {theme === "light" ? (
-        <Moon className="h-[1.2rem] w-[1.2rem] transition-transform duration-300 ease-in-out" />
+        <Moon className="h-[1.2rem] w-[1.2rem] transition-all duration-500 ease-in-out hover:rotate-[360deg]" />
       ) : (
-        <Sun className="h-[1.2rem] w-[1.2rem] transition-transform duration-300 ease-in-out" />
+        <Sun className="h-[1.2rem] w-[1.2rem] transition-all duration-500 ease-in-out hover:rotate-[360deg]" />
       )}
+      <span className="sr-only">Toggle theme</span>
     </Button>
   );
 };

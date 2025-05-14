@@ -28,7 +28,7 @@ export const ScrollToTop = () => {
   return (
     <Button
       onClick={scrollToTop}
-      className="fixed bottom-20 right-4 z-50 rounded-full shadow-md"
+      className="fixed bottom-20 right-4 z-50 rounded-full shadow-md animate-fade-in transition-all duration-300 hover:-translate-y-1 hover:shadow-lg animate-pulse-slow"
       size="icon"
     >
       <ArrowUp className="h-4 w-4" />

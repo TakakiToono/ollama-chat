@@ -93,16 +93,42 @@ export default {
 				'typing': {
 					'0%': { 
 						transform: 'translateY(0px)',
-						backgroundColor: 'hsl(var(--chat-assistant))' 
+						backgroundColor: 'hsl(var(--muted-foreground))' 
 					},
 					'28%': { 
 						transform: 'translateY(-5px)',
-						backgroundColor: 'hsl(var(--chat-assistant))' 
+						backgroundColor: 'hsl(var(--foreground))' 
 					},
 					'44%': { 
 						transform: 'translateY(0px)',
-						backgroundColor: 'hsl(var(--chat-assistant))' 
+						backgroundColor: 'hsl(var(--muted-foreground))' 
 					}
+				},
+				'float': {
+					'0%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' },
+					'100%': { transform: 'translateY(0px)' }
+				},
+				'pulse-subtle': {
+					'0%': { transform: 'scale(1)', opacity: '1' },
+					'50%': { transform: 'scale(1.05)', opacity: '0.9' },
+					'100%': { transform: 'scale(1)', opacity: '1' }
+				},
+				'fade-in': {
+					'0%': { opacity: '0', transform: 'translateY(10px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
+				},
+				'rotate': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
+				},
+				'slide-up': {
+					'0%': { transform: 'translateY(10px)', opacity: '0' },
+					'100%': { transform: 'translateY(0)', opacity: '1' }
+				},
+				'slide-down': {
+					'0%': { transform: 'translateY(-10px)', opacity: '0' },
+					'100%': { transform: 'translateY(0)', opacity: '1' }
 				}
 			},
 			animation: {
@@ -110,7 +136,13 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'typing-dot-1': 'typing 1.4s infinite 0.2s',
 				'typing-dot-2': 'typing 1.4s infinite 0.4s',
-				'typing-dot-3': 'typing 1.4s infinite 0.6s'
+				'typing-dot-3': 'typing 1.4s infinite 0.6s',
+				'float': 'float 6s ease-in-out infinite',
+				'pulse-subtle': 'pulse-subtle 3s ease-in-out infinite',
+				'fade-in': 'fade-in 0.5s ease-out forwards',
+				'rotate': 'rotate 1s linear infinite',
+				'slide-up': 'slide-up 0.3s ease-out forwards',
+				'slide-down': 'slide-down 0.3s ease-out forwards'
 			}
 		}
 	},
