@@ -20,7 +20,7 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
     <div className="flex-1 overflow-y-auto p-4 space-y-6">
       {messages.length === 0 ? (
         <div className="flex h-full items-center justify-center text-center p-8">
-          <div className="max-w-md">
+          <div className="max-w-md p-6 rounded-2xl bg-card/40 backdrop-blur-sm border shadow-md">
             <h2 className="text-xl font-semibold mb-2">Welcome to Ollama Chat</h2>
             <p className="text-muted-foreground">
               Start a conversation with your local LLM. Your messages will be saved in your browser.

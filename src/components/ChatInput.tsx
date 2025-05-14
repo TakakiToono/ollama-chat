@@ -40,7 +40,7 @@ export const ChatInput: React.FC<ChatInputProps> = ({
   };
 
   return (
-    <div className="border-t bg-card p-4">
+    <div className="border-t bg-card/80 backdrop-blur-sm p-4">
       <div className="flex gap-2 items-end max-w-4xl mx-auto">
         <div className="relative flex-1">
           <Textarea
@@ -50,13 +50,13 @@ export const ChatInput: React.FC<ChatInputProps> = ({
             onKeyDown={handleKeyDown}
             placeholder="Type your message..."
             disabled={disabled}
-            className="resize-none min-h-[60px] max-h-[200px] pr-10 py-3"
+            className="resize-none min-h-[60px] max-h-[200px] pr-10 py-3 rounded-xl border-input shadow-sm focus-visible:ring-1"
             rows={1}
           />
           <Button
             size="icon"
             variant="ghost"
-            className="absolute right-2 bottom-2 opacity-70 hover:opacity-100"
+            className="absolute right-2 bottom-2 opacity-70 hover:opacity-100 rounded-full"
             disabled={disabled}
           >
             <Mic className="h-4 w-4" />
@@ -65,7 +65,7 @@ export const ChatInput: React.FC<ChatInputProps> = ({
         <Button 
           onClick={handleSubmit} 
           disabled={!message.trim() || disabled}
-          className="h-10 w-10"
+          className="h-10 w-10 rounded-full shadow-md"
         >
           <Send className="h-4 w-4" />
         </Button>

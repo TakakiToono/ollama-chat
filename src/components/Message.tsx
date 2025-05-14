@@ -32,20 +32,23 @@ export const Message: React.FC<MessageProps> = ({ message }) => {
     <div className={`flex ${isUser ? "justify-end" : "justify-start"} group`}>
       <div className={`flex ${isUser ? "flex-row-reverse" : "flex-row"} max-w-[85%] gap-3`}>
         <div className="flex-shrink-0 mt-1">
-          <Avatar className="h-8 w-8">
+          <Avatar className="h-8 w-8 ring-2 ring-background shadow-md">
             <AvatarImage src={isUser ? "/user-avatar.png" : "/assistant-avatar.png"} />
-            <AvatarFallback>{isUser ? "U" : "A"}</AvatarFallback>
+            <AvatarFallback className={isUser ? "bg-chat-user text-primary-foreground" : ""}>
+              {isUser ? "U" : "A"}
+            </AvatarFallback>
           </Avatar>
         </div>
         
         <div className="flex flex-col">
           <div 
             className={`
-              relative px-4 py-3 rounded-lg 
+              relative px-4 py-3 rounded-2xl shadow-sm 
               ${isUser 
                 ? "bg-chat-user text-primary-foreground rounded-tr-none" 
                 : "bg-chat-assistant rounded-tl-none"
               }
+              transition-all duration-200 ease-in-out hover:shadow-md
             `}
           >
             <div className="chat-message-markdown">
@@ -58,7 +61,7 @@ export const Message: React.FC<MessageProps> = ({ message }) => {
               className={`
                 absolute top-2 ${isUser ? "left-2" : "right-2"} 
                 opacity-0 group-hover:opacity-100 transition-opacity
-                hover:bg-black/10 p-1 rounded
+                hover:bg-black/10 p-1 rounded-full
               `}
               onClick={copyToClipboard}
             >

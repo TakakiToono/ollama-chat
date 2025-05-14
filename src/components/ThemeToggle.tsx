@@ -32,11 +32,12 @@ export const ThemeToggle = () => {
       size="icon"
       onClick={toggleTheme}
       aria-label="Toggle theme"
+      className="rounded-full transition-all duration-300 ease-in-out"
     >
       {theme === "light" ? (
-        <Moon className="h-[1.2rem] w-[1.2rem]" />
+        <Moon className="h-[1.2rem] w-[1.2rem] transition-transform duration-300 ease-in-out" />
       ) : (
-        <Sun className="h-[1.2rem] w-[1.2rem]" />
+        <Sun className="h-[1.2rem] w-[1.2rem] transition-transform duration-300 ease-in-out" />
       )}
     </Button>
   );

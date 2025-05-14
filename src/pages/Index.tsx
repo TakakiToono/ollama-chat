@@ -75,8 +75,8 @@ const Index = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen max-h-screen bg-background">
-      <header className="border-b p-4 flex justify-between items-center bg-card shadow-sm">
+    <div className="flex flex-col h-screen max-h-screen bg-gradient-to-b from-background to-background/80">
+      <header className="border-b p-4 flex justify-between items-center bg-card/80 backdrop-blur-sm shadow-sm">
         <h1 className="text-2xl font-bold text-foreground">Ollama Chat</h1>
         <div className="flex items-center gap-2">
           <Button
@@ -84,6 +84,7 @@ const Index = () => {
             variant="outline"
             size="icon"
             title="Clear chat"
+            className="rounded-full"
           >
             <Trash2 className="h-4 w-4" />
           </Button>
