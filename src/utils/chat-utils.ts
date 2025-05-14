@@ -1,31 +1,31 @@
-
-import { Message, OllamaRequest, OllamaResponse } from "@/types/chat";
+import { ChatOllama } from "@langchain/ollama";
+// import { Message, OllamaRequest, OllamaResponse } from "@/types/chat";
 import { toast } from "sonner";
 
-export async function sendMessageToOllama(
-  prompt: string,
-  model: string = "llama2"
-): Promise<string> {
+export async function sendMessageToOllama(prompt: string): Promise<string> {
   try {
-    const request: OllamaRequest = {
-      model,
-      prompt,
-    };
-
-    const response = await fetch("http://localhost:11434/api/generate", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(request),
+    // local ollama llm instance
+    const llm = new ChatOllama({
+      model: "gemma3",
+      temperature: 0.1,
+      maxRetries: 2,
+      // other params...
     });
 
-    if (!response.ok) {
-      throw new Error(`Error: ${response.status}`);
-    }
+    const response = await llm.invoke([
+      {
+        role: "system",
+        content: "you are a general pupose assistant bot and expert in coding.",
+        // any system prompt here
+      },
+      { role: "human", content: prompt },
+    ]);
 
-    const data: OllamaResponse = await response.json();
-    return data.response;
+    // if (!response.ok) {
+    //   throw new Error(`Error: ${response.status}`);
+    // }
+
+    return response.content;
   } catch (error) {
     console.error("Failed to send message to Ollama:", error);
     toast.error("Failed to connect to Ollama. Is the service running?");
@@ -33,7 +33,7 @@ export async function sendMessageToOllama(
   }
 }
 
-export function saveMessagesToLocalStorage(messages: Message[]): void {
+export function saveMessagesToLocalStorage(messages): void {
   try {
     localStorage.setItem("ollama-chat-messages", JSON.stringify(messages));
   } catch (error) {
@@ -41,7 +41,7 @@ export function saveMessagesToLocalStorage(messages: Message[]): void {
   }
 }
 
-export function loadMessagesFromLocalStorage(): Message[] {
+export function loadMessagesFromLocalStorage() {
   try {
     const saved = localStorage.getItem("ollama-chat-messages");
     return saved ? JSON.parse(saved) : [];
